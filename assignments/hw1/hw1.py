@@ -1,6 +1,6 @@
 """
 Name: Joshua Uys
-<ProgramName>.py
+BasicCalculator.py
 
 Problem: This program aims to calculate the area and volume using user inputted values
 

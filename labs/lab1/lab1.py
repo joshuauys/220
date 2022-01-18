@@ -1,3 +1,13 @@
+"""
+Joshua Uys
+lab1.py
+
+Interest calculator
+
+Certification of Authenticity:
+I certify that this assignment is entirely my own work.
+"""
+
 annual_interest_rate = eval(input("What is your annual interest rate?"))
 days_in_billing_cycle = eval(input("How many days are in your billing cycle?"))
 net_balance = eval(input("What is your previous net balance?"))

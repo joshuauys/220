@@ -2,7 +2,9 @@
 Name: Joshua Uys
 BasicCalculator.py
 
-Problem: This program aims to calculate the area and volume using user inputted values as well as converting km to miles, the cost of coffee and the percent of basketball shots made
+Problem: This program aims to calculate the area and volume using user
+inputted values as well as converting km to miles, the cost of coffee
+and the percent of basketball shots made
 
 Certification of Authenticity:
 I certify that this assignment is entirely my own work.
@@ -25,8 +27,8 @@ def calc_volume():
 def shooting_percentage():
     total_shots = eval(input("Enter the player's total shots: "))
     shots_made = eval(input("Enter how many shots the player made: "))
-    shooting_percentage = shots_made / total_shots * 100
-    print("Shooting percentage =", shooting_percentage, "%")
+    percentage_made = shots_made / total_shots * 100
+    print("Shooting percentage =", percentage_made, "%")
 
 def coffee():
     pounds_of_coffee = eval(input("How many pounds of coffee would you like? "))

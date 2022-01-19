@@ -10,7 +10,6 @@ Certification of Authenticity:
 I certify that this assignment is entirely my own work.
 """
 
-
 def calc_rec_area():
     length = eval(input("Enter the length: "))
     width = eval(input("Enter the width: "))

@@ -35,7 +35,6 @@ def means():
     print("Harmonic mean:", round(harmonic_mean, 3))
     print("Geometric mean:", round(geometric_mean, 3))
 
-
 means()
 
 

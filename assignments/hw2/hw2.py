@@ -12,16 +12,30 @@ import math
 
 
 def sum_of_threes():
-    pass
+    upper_bound = eval(input("What is the upper bound?"))
+    print(list(range(3, upper_bound, 3)))
 
+# sum_of_threes()
 
 def multiplication_table():
-    pass
+    step = 0
+    for i in range(1, 11):
+        for x in range(1, 10):
+            print((i * x), end = "\t")
+        print("\n")
 
+# multiplication_table()
 
 def triangle_area():
-    pass
+    side_a = eval(input("Enter side a length"))
+    side_b = eval(input("Enter side b length"))
+    side_c = eval(input("Enter side c length"))
 
+    s = (side_a + side_b + side_c) / 2
+    area = (s*(s-side_a)*(s - side_b)*(s-side_c)) ** 0.5
+    print("area of the triangle = ", area)
+
+# triangle_area()
 
 def sum_squares():
     pass

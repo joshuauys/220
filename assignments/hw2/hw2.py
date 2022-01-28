@@ -16,9 +16,8 @@ def sum_of_threes():
     accum = 0
 
     for i in range(1, (upper_bound - upper_bound % 3) // 3 + 1):
-        print(list(range(3, upper_bound, 3)))
         accum += 3 * i
-        print("accum:" , accum)
+    print("sum of threes:" , accum)
 
 def multiplication_table():
     for i in range(1, 11):
@@ -41,7 +40,7 @@ def sum_squares():
     acc = 0
 
     for i in range(lower_range, upper_range + 1):
-        acc = acc + (i ** 2)
+        acc = acc + (i * i)
 
     print("Square sum: ", acc)
 

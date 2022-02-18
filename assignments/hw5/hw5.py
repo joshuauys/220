@@ -9,8 +9,8 @@ I certify that this assignment is entirely my own work.
 """
 
 def name_reverse():
-    input = input("Enter a name (First Last)")
-    reversed_name_list = input.split(" ")
+    input_names = input("Enter a name (First Last)")
+    reversed_name_list = input_names.split(" ")
     last_name = reversed_name_list[1]
     first_name = reversed_name_list[0]
     print(last_name, ",", first_name)
@@ -19,7 +19,8 @@ def company_name():
     domain = input("Enter a domain:")
 
     cut_front = domain.replace("www.", "")
-    cut_end = cut_front.replace(".com", "")
+    ending = cut_front[cut_front.rfind(".") :]
+    cut_end = cut_front.replace(ending, "")
     print(cut_end)
 
 def initials():
@@ -30,20 +31,20 @@ def initials():
         first_initial = student_name[0]
         second_initial_position = student_name.find(" ")
         second_initial = student_name[second_initial_position + 1]
-        print(first_initial, second_initial)
+        print(first_initial.upper() + second_initial.upper())
 
 def names():
     names = input("Enter a list of names (First Last) seperated by a comma")
     names_list = names.split(", ")
-    number_of_names = names.count(", ")
-    for i in range(number_of_names + 1):
-        print = ""
-        first_name_initial = names_list[i]
+    number_of_names = len(names_list)
+    name_accum = ""
+    for i in range(number_of_names):
+        first_name_initial = str(names_list[i])[0]
+        location_last_name = names_list[i].find(" ")
+        last_name_initial = str(names_list[i])[location_last_name + 1]
+        name_accum += first_name_initial + last_name_initial + " "
 
-    print(names_list[i], end = " ")
-
-# names()
-# not complete
+    print(name_accum)
 
 def thirds():
     sentences = ""
@@ -68,8 +69,6 @@ def word_average():
     average_length_accum  = sum_length_accum / len(sentence_list)
     print(average_length_accum)
 
-# word_average()
-
 def pig_latin():
     normal_sentence = input("Enter a sentence to convert to pig latin")
     normal_sentence_list = normal_sentence.split(" ")
@@ -83,6 +82,3 @@ def pig_latin():
         pig_latin_accum += new_word
 
     print(pig_latin_accum.lower())
-
-pig_latin()
-

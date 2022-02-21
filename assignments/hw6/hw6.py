@@ -73,3 +73,17 @@ def encode_better():
 # encode_better()
 
 # not finished d shifted = 67 then loop back to 0
+
+if __name__ == '__main__':
+    # cash_converter()
+    # encode()
+    # res = sphere_area(13)
+    # print(res)
+    # res = sphere_volume(13)
+    # print(res)
+    # res = sum_n(100)
+    # print(res)
+    # res = sum_n_cubes(13)
+    # print(res)
+    # encode_better()
+    pass

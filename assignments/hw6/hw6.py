@@ -69,7 +69,3 @@ def encode_better():
             # print(ord(message[x]) - 65 + key_unicode)
 
     print(encoded_message)
-
-# encode_better()
-
-# not finished d shifted = 67 then loop back to 0

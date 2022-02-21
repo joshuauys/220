@@ -2,7 +2,7 @@
 Name: Joshua Uys
 <ProgramName>.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
+Problem: Solve basic math problems
 
 Certification of Authenticity:
 
@@ -13,18 +13,17 @@ import math
 
 def sum_of_threes():
     upper_bound = eval(input("What is the upper bound?"))
-    print(list(range(3, upper_bound, 3)))
+    accum = 0
 
-# sum_of_threes()
+    for i in range(1, (upper_bound - upper_bound % 3) // 3 + 1):
+        accum += 3 * i
+    print("sum of threes:" , accum)
 
 def multiplication_table():
-    step = 0
     for i in range(1, 11):
-        for x in range(1, 10):
-            print((i * x), end = "\t")
+        for i_2 in range(1, 10):
+            print((i * i_2), end = "\t")
         print("\n")
-
-# multiplication_table()
 
 def triangle_area():
     side_a = eval(input("Enter side a length"))
@@ -32,18 +31,29 @@ def triangle_area():
     side_c = eval(input("Enter side c length"))
 
     s = (side_a + side_b + side_c) / 2
-    area = (s*(s-side_a)*(s - side_b)*(s-side_c)) ** 0.5
+    area = math.sqrt((s*(s-side_a)*(s - side_b)*(s-side_c)))
     print("area of the triangle = ", area)
 
-# triangle_area()
-
 def sum_squares():
-    pass
+    upper_range = eval(input("Enter the upper range: "))
+    lower_range = eval(input("Enter the lower range: "))
+    acc = 0
 
+    for i in range(lower_range, upper_range + 1):
+        acc = acc + (i * i)
+
+    print("Square sum: ", acc)
 
 def power():
-    pass
+    base = eval(input("Enter base: "))
+    exponent = eval(input("Enter exponent: "))
+    result = base
 
+    for i in range(exponent - 1):
+        print("result:" , result)
+        result = result * base
+
+    print(base, "^", exponent, "=", result)
 
 if __name__ == '__main__':
     pass

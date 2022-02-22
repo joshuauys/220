@@ -51,28 +51,25 @@ def encode_better():
 
     message_length = len(message)
     key_length = len(key)
-
+    key_tracker = 0
     key_list = []
 
     encoded_message = ""
+    for x in range(message_length // key_length + message_length % key_length):
+        for i in range(key_length):
+            key_list.append(ord(key[i]) - 65)
 
-    for i in range(key_length):
-        key_list.append(ord(key[i]) - 65)
-    print("key list: ",key_list)
+    for i in range(message_length):
+        unicode_message = ord(message[i]) - 65
+        unicode_key = key_list[key_tracker]
+        unicode_shifted_message = (unicode_message + unicode_key) % 58
+        shifted_message = chr(unicode_shifted_message + 65)
 
-    for i in key_list:
-        key_unicode = i
-        for x in range(message_length):
-            encoded_message += chr(ord(message[x]) - 65 + key_unicode)
-            print(chr(ord(message[x]) - 65 + key_unicode))
-            # print(chr(ord(message[x]) - 65 + key_unicode))
-            # print(ord(message[x]) - 65 + key_unicode)
+        key_tracker += 1
+
+        encoded_message += shifted_message
 
     print(encoded_message)
-
-# encode_better()
-
-# not finished d shifted = 67 then loop back to 0
 
 if __name__ == '__main__':
     # cash_converter()

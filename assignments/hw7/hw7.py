@@ -26,22 +26,21 @@ def hourly_wages(in_file_name: str, out_file_name: str):
     in_text_string = in_text_file.read()
     in_text_list = in_text_file.readlines()
 
-    for line in in_text_file:
-        print("x")
-
     for i in range(in_text_string.count("\n") + 1):
         print(in_text_string)
         in_text_lines = in_text_file.readline()
-        number_of_hours = in_text_lines
+        number_of_hours = in_text_line[-2:]
+        pay rate = in_text_line[-8:-2]
 
         print(number_of_hours)
 
         # in_text_string.find("\n")
         # in_text_lines = in_text_string
 
-    # number_of_hours = in_text_line[-2:]
+    pay = number_of_hours * pay_rate + number_of_hours * 1.65
 
     out_text_file = open(out_file_name, "w")
+    out_text_file.write(pay)
 
 hourly_wages("hourly_wages.txt", "outfile.txt")
 # not complete
@@ -59,14 +58,8 @@ def send_message(file_name, friend_name):
     in_text_file = open(file_name, "r")
     in_text_string = in_text_file.read()
 
-    print(in_text_string)
-
     out_text_file = open(friend_name + ".txt", "w")
-    out_text_file.write("Message2")
-
-# send_message("hourly_wages.txt", "name")
-
-# incomplete
+    out_text_file.write()
 
 def encode(message: str, key: int):
     # message = input("Enter a message: ")
@@ -93,14 +86,7 @@ def send_safe_message(file_name: str, friend_name: str, key: int):
     out_text_file = open(friend_name + ".txt", "w")
     out_text_file.write(encoded_message)
 
-# send_safe_message("hourly_wages.txt", "name", 5)
-
-# go back to txt files, create new "{name}.txt"
-
-def encode_better():
-    message = input("Enter a message: ")
-    key = input("Enter a key: ")
-
+def encode_better(message: str, key: str):
     message_length = len(message)
     key_length = len(key)
     key_tracker = 0
@@ -121,11 +107,13 @@ def encode_better():
 
         encoded_message += shifted_message
 
-    print(encoded_message)
+    return(encoded_message)
 
 def send_uncrackable_message(file_name, friend_name, pad_file_name):
-    pass
-
+    in_text_file = open(file_name, "r")
+    in_text_string = in_text_file.read()
+    out_text_file = open(pad_file_name, "w")
+    out_text_file.write(encode_better(in_text_string, ))
 
 if __name__ == '__main__':
     pass

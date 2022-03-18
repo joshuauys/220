@@ -11,7 +11,7 @@ I certify that this assignment is entirely my own work.
 # nums = [10, 20, 30]
 # csv = "10, 20, 30"
 
-from graphics import GraphWin, Circle, Point
+from graphics import GraphWin, Circle, Point, Text
 import math
 
 def add_ten(nums):
@@ -92,6 +92,23 @@ def leap_year(year):
 
 # leap_year(2400)
 
+def did_overlap(circle_one, circle_two):
+    center_one = circle_one.getCenter()
+    center_two = circle_two.getCenter()
+
+    radius_one = circle_one.getRadius()
+    radius_two = circle_two.getRadius()
+
+    distance_between_centers = math.sqrt((center_one.getX() - center_two.getX()) ** 2 + (center_one.getY() - center_two.getY()) ** 2)
+    both_radii = radius_one + radius_two
+
+    overlap = False
+
+    if distance_between_centers < both_radii:
+        overlap = True
+
+    return overlap
+
 def circle_overlap():
     width_px = 700
     height_px = 700
@@ -116,8 +133,19 @@ def circle_overlap():
     circle_two.setFill("light blue")
     circle_two.draw(win)
 
-    distance_between_centers = math.sqrt((center_one.getX() - center_two.getX()) ** 2 + (center_one.getY() - center_two.getY()) ** 2)
-    both_radii = radius_one + radius_two
+    inst_pt = Point(5, 1.25)
+    instructions = Text(inst_pt, "Click again to close")
+    instructions.draw(win)
+
+    overlap_pt = Point(5, 1)
+
+    overlap_text_display = "The circles do not overlap"
+
+    if did_overlap(circle_one, circle_two) != 0:
+        overlap_text_display = "The circles overlap"
+
+    overlap_text = Text(overlap_pt, overlap_text_display)
+    overlap_text.draw(win)
 
     win.getMouse()
 
@@ -126,24 +154,7 @@ def circle_overlap():
 # circle_one = Circle(Point(2.75, 8), 1)
 # circle_two = Circle(Point(4.3, 6), 1)
 
-def did_overlap(circle_one, circle_two):
-    center_one = circle_one.getCenter()
-    center_two = circle_two.getCenter()
 
-    radius_one = circle_one.getRadius()
-    radius_two = circle_two.getRadius()
-
-    distance_between_centers = math.sqrt((center_one.getX() - center_two.getX()) ** 2 + (center_one.getY() - center_two.getY()) ** 2)
-    both_radii = radius_one + radius_two
-
-    overlap = False
-
-    if distance_between_centers < both_radii:
-        overlap = True
-
-    print(overlap)
-
-    return overlap
 
 # did_overlap(circle_one, circle_two)
 

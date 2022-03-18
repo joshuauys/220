@@ -151,12 +151,5 @@ def circle_overlap():
 
 # circle_overlap()
 
-# circle_one = Circle(Point(2.75, 8), 1)
-# circle_two = Circle(Point(4.3, 6), 1)
-
-
-
-# did_overlap(circle_one, circle_two)
-
 if __name__ == '__main__':
     pass

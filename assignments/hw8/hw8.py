@@ -1,43 +1,96 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Joshua Uys
+hw8.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
+Problem: Accumulations and conditional control structures
 
 Certification of Authenticity:
-<include one of the following>
 I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
 """
 
+# nums = [10, 20, 30]
+# csv = "10, 20, 30"
+
+from graphics import GraphWin, Circle, Point
+import math
 
 def add_ten(nums):
-    pass
+    list_len = len(nums)
+    for i in range(list_len):
+        nums[i] += 10
 
+# add_ten(nums)
 
-def square_each(nums):
-    pass
+def square_each(list):
+    list_len = len(list)
+    for i in range(list_len):
+        list[i] = list[i] ** 2
+    return list
 
+# square_each(nums)
 
 def sum_list(nums):
-    pass
+    accum = 0
+    list_len = len(nums)
+    for i in range(list_len):
+        accum += nums[i]
 
+# sum_list(nums)
 
 def to_numbers(nums):
-    pass
+    list_len = len(nums)
+    for i in range(list_len):
+        nums[i] = eval(nums[i])
 
+# to_numbers(nums)
 
-def sum_of_square(nums):
-    pass
+def sum_of_square(csv):
+    csv_list = csv.split(",")
 
+    for i in range(len(csv_list)):
+        csv_list[i] = eval(csv_list[i])
+
+    csv_list_squared = square_each(csv_list)
+
+    accum = 0
+
+    for i in range(len(csv_list_squared)):
+        accum += csv_list_squared[i]
+
+    return accum
+
+# sum_of_square(csv)
 
 def starter(weight, wins):
-    pass
 
+    on_the_team = False
+
+    if weight >= 150:
+        if weight <= 160:
+            if wins >= 5:
+                on_the_team = True
+
+    if weight > 199:
+        on_the_team = True
+
+    if wins > 20:
+        on_the_team = True
+
+    print(on_the_team)
+    return on_the_team
+
+# starter(40, 3)
 
 def leap_year(year):
-    pass
+    is_a_leap_year = False
 
+    if (year / 400) == (year // 400):
+        is_a_leap_year = True
+
+    print(is_a_leap_year)
+    return is_a_leap_year
+
+# leap_year(2400)
 
 def circle_overlap():
     width_px = 700
@@ -47,20 +100,52 @@ def circle_overlap():
     height = 10
     win.setCoords(0, 0, width, height)
 
-    center = win.getMouse()
+    center_one = win.getMouse()
     circumference_point = win.getMouse()
-    radius = math.sqrt(
-        (center.getX() - circumference_point.getX()) ** 2 + (center.getY() - circumference_point.getY()) ** 2)
-    circle_one = Circle(center, radius)
+    radius_one = math.sqrt(
+        (center_one.getX() - circumference_point.getX()) ** 2 + (center_one.getY() - circumference_point.getY()) ** 2)
+    circle_one = Circle(center_one, radius_one)
     circle_one.setFill("light blue")
     circle_one.draw(win)
 
+    center_two = win.getMouse()
+    circumference_point = win.getMouse()
+    radius_two = math.sqrt(
+        (center_two.getX() - circumference_point.getX()) ** 2 + (center_two.getY() - circumference_point.getY()) ** 2)
+    circle_two = Circle(center_two, radius_two)
+    circle_two.setFill("light blue")
+    circle_two.draw(win)
+
+    distance_between_centers = math.sqrt((center_one.getX() - center_two.getX()) ** 2 + (center_one.getY() - center_two.getY()) ** 2)
+    both_radii = radius_one + radius_two
+
     win.getMouse()
 
+# circle_overlap()
+
+# circle_one = Circle(Point(2.75, 8), 1)
+# circle_two = Circle(Point(4.3, 6), 1)
 
 def did_overlap(circle_one, circle_two):
-    pass
+    center_one = circle_one.getCenter()
+    center_two = circle_two.getCenter()
 
+    radius_one = circle_one.getRadius()
+    radius_two = circle_two.getRadius()
+
+    distance_between_centers = math.sqrt((center_one.getX() - center_two.getX()) ** 2 + (center_one.getY() - center_two.getY()) ** 2)
+    both_radii = radius_one + radius_two
+
+    overlap = False
+
+    if distance_between_centers < both_radii:
+        overlap = True
+
+    print(overlap)
+
+    return overlap
+
+# did_overlap(circle_one, circle_two)
 
 if __name__ == '__main__':
     pass

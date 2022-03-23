@@ -17,7 +17,6 @@ def ask_for_position():
     if players_turn_tracker % 2 == 1:
         players_turn = "x"
 
-    print("Enter position")
     position = eval(input()) - 1
     return position
 
@@ -74,7 +73,55 @@ def is_legal(board, position):
 
 def fill_spot(board, position, character):
     if is_legal(board, position):
-        board[position] = find_players_turn()
+        board[position] = character
+
+def get_winner(board):
+    winner = ""
+
+    # horizontals
+    if board[0] == "x" and board[1] == "x" and board[2] == "x":
+        winner = "x"
+    if board[0] == "o" and board[1] == "o" and board[2] == "o":
+        winner = "o"
+
+    if board[3] == "x" and board[4] == "x" and board[5] == "x":
+        winner = "x"
+    if board[3] == "o" and board[4] == "o" and board[5] == "o":
+        winner = "o"
+
+    if board[6] == "x" and board[7] == "x" and board[8] == "x":
+        winner = "x"
+    if board[6] == "o" and board[7] == "o" and board[8] == "o":
+        winner = "o"
+
+    # verticles
+    if board[0] == "x" and board[3] == "x" and board[6] == "x":
+        winner = "x"
+    if board[0] == "o" and board[3] == "o" and board[6] == "o":
+        winner = "o"
+
+    if board[1] == "x" and board[4] == "x" and board[7] == "x":
+        winner = "x"
+    if board[1] == "o" and board[4] == "o" and board[7] == "o":
+        winner = "o"
+
+    if board[2] == "x" and board[5] == "x" and board[8] == "x":
+        winner = "x"
+    if board[2] == "o" and board[5] == "o" and board[8] == "o":
+        winner = "o"
+
+    # diagonals
+    if board[0] == "x" and board[4] == "x" and board[8] == "x":
+        winner = "x"
+    if board[0] == "o" and board[4] == "o" and board[8] == "o":
+        winner = "o"
+
+    if board[2] == "x" and board[4] == "x" and board[6] == "x":
+        winner = "x"
+    if board[2] == "o" and board[4] == "o" and board[6] == "o":
+        winner = "o"
+
+    return winner
 
 def winning_game(board):
     won = False
@@ -82,116 +129,114 @@ def winning_game(board):
     # horizontals
     if board[0] == "x" and board[1] == "x" and board[2] == "x":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
     if board[0] == "o" and board[1] == "o" and board[2] == "o":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
 
     if board[3] == "x" and board[4] == "x" and board[5] == "x":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
     if board[3] == "o" and board[4] == "o" and board[5] == "o":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
 
     if board[6] == "x" and board[7] == "x" and board[8] == "x":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
     if board[6] == "o" and board[7] == "o" and board[8] == "o":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
 
     # verticles
     if board[0] == "x" and board[3] == "x" and board[6] == "x":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
     if board[0] == "o" and board[3] == "o" and board[6] == "o":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
 
     if board[1] == "x" and board[4] == "x" and board[7] == "x":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
     if board[1] == "o" and board[4] == "o" and board[7] == "o":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
 
     if board[2] == "x" and board[5] == "x" and board[8] == "x":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
     if board[2] == "o" and board[5] == "o" and board[8] == "o":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
 
     # diagonals
     if board[0] == "x" and board[4] == "x" and board[8] == "x":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
     if board[0] == "o" and board[4] == "o" and board[8] == "o":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
 
     if board[2] == "x" and board[4] == "x" and board[6] == "x":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
     if board[2] == "o" and board[4] == "o" and board[6] == "o":
         won = True
+        print(get_winner(board), "Wins!")
+        board = [1,2,3,4,5,6,7,8,9]
 
     return won
 
 def game_over(board):
-    any_spaces_left = True
-    game_is_over = False
+    game_over = False
 
-    while any_spaces_left:
-        for i in range(len(board)):
-            if board[i] == 1 or board[i] == 2 or board[i] == 3 or board[i] == 4 or board[i] == 5 or board[i] == 6 or board[i] == 7 or board[i] == 8 or board[i] == 9:
-                any_spaces_left = False
+    for i in range(len(board)):
+        if type(board[i]) == int:
+            game_over = True
+            print("game over")
 
-    return game_is_over
+    return game_over
 
-def get_winner(board):
-    winner = "x"
-
-    # horizontals
-    if board[0] == "x" or board[1] == "x" or board[2] == "x":
-        winner = "x"
-    if board[0] == "o" or board[1] == "o" or board[2] == "o":
-        winner = "o"
-
-    if board[3] == "x" or board[4] == "x" or board[5] == "x":
-        winner = "x"
-    if board[3] == "o" or board[4] == "o" or board[5] == "o":
-        winner = "o"
-
-    if board[6] == "x" or board[7] == "x" or board[8] == "x":
-        winner = "x"
-    if board[6] == "o" or board[7] == "o" or board[8] == "o":
-        winner = "o"
-
-    # verticles
-    if board[0] == "x" or board[3] == "x" or board[6] == "x":
-        winner = "x"
-    if board[0] == "o" or board[3] == "o" or board[6] == "o":
-        winner = "o"
-
-    if board[1] == "x" or board[4] == "x" or board[7] == "x":
-        winner = "x"
-    if board[1] == "o" or board[4] == "o" or board[7] == "o":
-        winner = "o"
-
-    if board[2] == "x" or board[5] == "x" or board[8] == "x":
-        winner = "x"
-    if board[2] == "o" or board[5] == "o" or board[8] == "o":
-        winner = "o"
-
-    # diagonals
-    if board[0] == "x" or board[4] == "x" or board[8] == "x":
-        winner = "x"
-    if board[0] == "o" or board[4] == "o" or board[8] == "o":
-        winner = "o"
-
-    if board[2] == "x" or board[4] == "x" or board[6] == "x":
-        winner = "x"
-    if board[2] == "o" or board[4] == "o" or board[6] == "o":
-        winner = "o"
-
-    return winner
 
 def play(board):
-    # while winning_game(board) == False:
-    while game_over(board) == False:
+    players_turn_tracker = 0
+    while winning_game(board) == False:
+        game_over(board)
+
+        if players_turn_tracker % 2 == 0:
+            players_turn = "o"
+
+        if players_turn_tracker % 2 == 1:
+            players_turn = "x"
+
         print_board(board)
-        fill_spot(board, ask_for_position(), find_players_turn())
-    if game_over(board):
-        print("you have won")
-    # if game_over(board):
-    #     print("you have won")
+        print(players_turn, "'s choose a position")
+
+        fill_spot(board, ask_for_position(), players_turn)
+        players_turn_tracker += 1
+
+    if winning_game(board):
+        play_again = input("play again?")
+        play_again = play_again.upper()
+        print(play_again[0])
+        if play_again[0] == "Y":
+            play(build_board())
 
 play(build_board())
 

@@ -10,7 +10,6 @@ I certify that this assignment is entirely my own work.
 """
 
 from graphics import GraphWin, Text, Point, Rectangle
-# from lab10.button import Button
 from door import Door
 from random import randint
 
@@ -138,7 +137,8 @@ while continue_playing:
     win_score.setText(str(win_counter))
     lose_score.setText(str(loss_counter))
     bottom_instructions.setText("click anywhere to play again")
-    click = win.getMouse()
+    if continue_playing:
+        click = win.getMouse()
     clickx = click.getX()
     clicky = click.getY()
     if clickx < 750 and clickx > 650 and clicky > 50 and clicky < 100:

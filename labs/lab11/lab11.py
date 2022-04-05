@@ -59,39 +59,38 @@ while continue_playing:
     door1_shape = Rectangle(Point(50, 300), Point(250, 650))
     door1_label = "closed"
     door1 = Door(door1_shape, door1_label)
+    door1.close("burlywood4", "Closed")
     door1.draw(win)
 
     door2_shape = Rectangle(Point(300, 300), Point(500, 650))
     door2_label = "closed"
     door2 = Door(door2_shape, door2_label)
+    door2.close("burlywood4", "Closed")
     door2.draw(win)
 
     door3_shape = Rectangle(Point(550, 300), Point(750, 650))
     door3_label = "closed"
     door3 = Door(door3_shape, door3_label)
+    door3.close("burlywood4", "Closed")
     door3.draw(win)
 
     # generating random door
     random_door = randint(1,3)
-    print(random_door)
 
     if random_door == 1:
         door1.set_secret(True)
         door2.set_secret(False)
         door3.set_secret(False)
-        print("door 1 is secret")
 
     if random_door == 2:
         door1.set_secret(False)
         door2.set_secret(True)
         door3.set_secret(False)
-        print("door 2 is secret")
 
     if random_door == 3:
         door1.set_secret(False)
         door2.set_secret(False)
         door3.set_secret(True)
-        print("door 3 is secret")
 
     # clicks
     click = win.getMouse()
@@ -105,8 +104,6 @@ while continue_playing:
 
     # click door 1?
     if clickx < 250 and clickx > 50 and clicky > 300 and clicky < 650:
-        print("door 1")
-        print(door1.is_secret())
         if door1.is_secret() == True:
             door1.open("green", "open")
             win_counter += 1
@@ -118,8 +115,6 @@ while continue_playing:
 
     # click door 2?
     if clickx < 500 and clickx > 300 and clicky > 300 and clicky < 650:
-        print("door 2")
-        print(door2.is_secret())
         if door2.is_secret() == True:
             door2.open("green", "open")
             win_counter += 1
@@ -131,8 +126,6 @@ while continue_playing:
 
     # click door 3?
     if clickx < 750 and clickx > 550 and clicky > 300 and clicky < 650:
-        print("door 3")
-        print(door3.is_secret())
         if door3.is_secret() == True:
             door3.open("green", "open")
             win_counter += 1
@@ -145,7 +138,12 @@ while continue_playing:
     win_score.setText(str(win_counter))
     lose_score.setText(str(loss_counter))
     bottom_instructions.setText("click anywhere to play again")
-    win.getMouse()
+    click = win.getMouse()
+    clickx = click.getX()
+    clicky = click.getY()
+    if clickx < 750 and clickx > 650 and clicky > 50 and clicky < 100:
+        continue_playing = False
+        win.close()
     top_instructions.setText("I have a secret door")
     bottom_instructions.setText("Click to guess which is the secret door")
     random_door = randint(1,3)

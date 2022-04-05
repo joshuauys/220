@@ -24,7 +24,6 @@ class Door:
         self.text.setText(label)
 
     def draw(self, win):
-        self.color_door(("burlywood4"))
         self.shape.draw(win)
         self.text.draw(win)
 

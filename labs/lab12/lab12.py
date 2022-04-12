@@ -41,18 +41,25 @@ def good_input():
 # good_input()
 
 def num_digits():
-    user_input = eval(input("Enter a value"))
-    while user_input > 0:
-        digits = 0
-        division = None
-        while division != 0:
-            division = user_input // 10
-            digits += 1
-        print(digits)
-        # user_input = eval(input("Enter a value"))
+    is_positive = True
+
+    while is_positive:
+        user_input = eval(input("Enter a positive value"))
+
+        if user_input <= 0:
+            is_positive = False
+
+        if is_positive:
+            division = user_input
+            number_of_digits = 0
+
+            while division > 9:
+                division = division // 10
+                number_of_digits += 1
+
+            print(number_of_digits + 1)
 
 # num_digits()
-# INCOMPLETE ^
 
 def hi_lo_game():
     number_of_guesses = 7
@@ -78,6 +85,5 @@ def hi_lo_game():
             print("you lose, the number was", random_number)
 
 # hi_lo_game()
-
 
 
